@@ -1,0 +1,49 @@
+{% extends "header.html" %}
+{% block body %}
+
+<!-- 
+<div class="container"> 
+    <h1> 
+  <span style="color:green">Dash Board</span> 
+  <button class='btn btn-success pull-right'> 
+   
+      </button> 
+</h1> 
+</div> -->
+
+<div>
+    <!-- <h1 style="display:inline">All Posts</h1> -->
+    <a style="display:inline" class="btn btn-success  pull-right" href="/logout" >Logout</a>
+    <br>
+    <br>
+    <br>
+    
+   <a style="display:inline" class="btn btn-success pull-right" href="/newpost" >+ New Post</a>
+</div>
+   {% for post in account %}
+    <div class="well">
+        <div class="media">
+            <a class="pull-left" href="#">
+              <img class="media-object" src="http://placekitten.com/150/150">
+            </a>
+            <div class="media-body">
+              <h4 class="media-heading">{{ post.title }}</h4>
+            <p class="text-left">{{ post.author }}</p>
+            <p>{{ post.content }}</p>
+            <ul class="list-inline list-unstyled">
+                <li><span><i class="glyphicon glyphicon-calendar"></i> {{ post.date }} </span></li>
+              </ul>
+              
+              <a class="btn btn-danger" href='/delete/{{post.id}}'>Delete</a>
+              <a class="btn btn-primary" href='/edit/{{post.id}}'>Edit</a>
+         </div>
+      </div>
+    </div>
+        <br>
+    {% endfor%}
+
+
+  
+
+    
+{% endblock %}
